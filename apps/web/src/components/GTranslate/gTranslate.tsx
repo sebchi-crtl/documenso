@@ -8,6 +8,8 @@ import './gTranslate.css';
 interface Window {
   gtranslateSettings: {
     default_language: string;
+    native_language_names: boolean;
+    detect_browser_language: boolean;
     languages: string[];
     wrapper_selector: string;
     flag_size: number;
@@ -21,6 +23,8 @@ declare global {
   interface Window {
     gtranslateSettings: {
       default_language: string;
+      native_language_names: boolean;
+      detect_browser_language: boolean;
       languages: string[];
       wrapper_selector: string;
       flag_size: number;
@@ -34,8 +38,10 @@ const GTranslate: React.FC = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.gtranslateSettings = {
-        default_language: 'iw',
-        languages: ['iw', 'fr', 'de', 'it', 'es', 'uk', 'en'],
+        default_language: 'en',
+        native_language_names: true,
+        detect_browser_language: true,
+        languages: ['en', 'fr', 'de', 'it', 'es', 'uk', 'iw'],
         wrapper_selector: '.gtranslate_wrapper',
         flag_size: 24,
         switcher_horizontal_position: 'inline',
